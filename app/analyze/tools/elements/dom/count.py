@@ -1,12 +1,7 @@
 # app/analyze/tools/elements/dom/count.py
-import requests
 from bs4 import BeautifulSoup
 from pyroscope import tag_wrapper
 
-def get_html(url):
-    '''Fetches a webpage and returns its HTML.'''
-    response = requests.get(url)
-    return response.text
 
 @tag_wrapper({ 'state.function': 'count_dom_elements' })
 def count_dom_elements(html):
@@ -21,9 +16,3 @@ def count_dom_elements(html):
 
     # Return the count of all DOM elements
     return len(dom_elements)
-
-if __name__ == "__main__":
-    url = "https://bentleyhensel.com"
-    html = get_html(url)
-    count = count_dom_elements(html)
-    print(f"The total number of DOM elements is: {count}")

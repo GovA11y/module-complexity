@@ -6,10 +6,12 @@ Purpose of this script and scripts in the analyze directory is to return the met
 
 """
 from .tools.elements import get_dom_vars
+from app.utils import get_html
 
 
 def get_variables(url):
-    dom_vars = get_dom_vars(url)
+    html = get_html(url)
+    dom_vars = get_dom_vars(html)
 
     all_vars = {
         **dom_vars

@@ -12,4 +12,4 @@ pyroscope.configure(
     application_name=os.getenv("PYROSCOPE_APPLICATION_NAME"),
     server_address=os.getenv("PYROSCOPE_SERVER"),
 )
-
+print('Pyroscope Configured')
