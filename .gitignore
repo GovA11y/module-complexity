@@ -1,0 +1,7 @@
+.nova
+.DS_Store
+.env
+venv
+__pycache__
+notes.md
+logs*
