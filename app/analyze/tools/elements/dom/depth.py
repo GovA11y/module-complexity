@@ -1,8 +1,7 @@
 # app/analyze/tools/elements/dom/depth.py
 from bs4 import BeautifulSoup
 from pyroscope import tag_wrapper
-import requests
-from app.utils import get_html
+
 
 @tag_wrapper({'state.function': 'calculate_dom_depth'})
 def calculate_dom_depth(html):
