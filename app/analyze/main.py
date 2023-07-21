@@ -27,4 +27,6 @@ def get_variables(url):
     if css_vars is not None:
         all_vars.update(css_vars)
 
+    all_vars['url'] = url
+
     return all_vars
