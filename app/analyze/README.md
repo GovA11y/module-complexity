@@ -2,8 +2,6 @@
 
 ## Page Complexity Variables
 
-Below is a list of variables that can be used to determine the overall complexity of a web page.
-
 1. **Number of Interactive Elements**
    This variable calculates the total number of interactive elements on a page, such as links, buttons, input fields, etc.
 
