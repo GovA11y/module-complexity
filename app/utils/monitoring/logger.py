@@ -1,4 +1,3 @@
-# app/utils/monitoring/logger.py
 """
 logger.py
 Relative Path: app/utils/logger/logger.py
@@ -7,12 +6,11 @@ This module provides configuration for the logging system.
 
 Author: TheBoatyMcBoatFace
 """
-import os
-im
+
 import logging
 import time
 from logging.handlers import TimedRotatingFileHandler
-
+from rich.logging import RichHandler
 
 
 logger_name = "GovA11y"
@@ -22,12 +20,12 @@ level = 'DEBUG'
 logger = logging.getLogger(__name__)
 
 # the handler determines where the logs go: stdout/file
-
+shell_handler = shell_handler = RichHandler(markup=True)
 filename = f"logs/{logger_name}-{time.strftime('%Y-%m-%d')}.log"
 file_handler = TimedRotatingFileHandler(filename=filename, when="midnight", interval=1, backupCount=30)
 
 logger.setLevel(logging.DEBUG)
-
+shell_handler.setLevel(logging.DEBUG)
 file_handler.setLevel(logging.DEBUG)
 
 # the formatter determines what our logs will look like
@@ -38,10 +36,10 @@ shell_formatter = logging.Formatter(fmt_shell)
 file_formatter = logging.Formatter(fmt_file)
 
 # here we hook everything together
-
+shell_handler.setFormatter(shell_formatter)
 file_handler.setFormatter(file_formatter)
 
-
+logger.addHandler(shell_handler)
 logger.addHandler(file_handler)
 
 
